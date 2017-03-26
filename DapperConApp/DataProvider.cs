@@ -9,6 +9,21 @@ namespace DapperConApp
 {
     public class DataProvider : DataManager
     {
+        public override int CountSeats(int actionId, int eventId, int memberId, int statusId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@ActionId", actionId);
+            parameters.Add("@EventId", eventId);
+            parameters.Add("@MemberId", memberId);
+            parameters.Add("@StatusId", statusId);
+            int returnValue = 0;
+            using (var cn = OpenConnection())
+            {
+                returnValue = cn.ExecuteScalar<int>("Seats_CountSeats", parameters, commandType: CommandType.StoredProcedure);
+            }
+            return returnValue;
+        }
+
         public override Seat GetSeatBySeatId(int seatId)
         {
             DynamicParameters parameters = new DynamicParameters();
