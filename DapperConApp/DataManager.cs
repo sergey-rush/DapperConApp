@@ -19,8 +19,7 @@ namespace DapperConApp
                 return _instance;
             }
         }
-
-        public abstract int CountSeats(int actionId, int eventId, int memberId, int statusId);
+        
         public abstract Seat GetSeatBySeatId(int seatId);
         public abstract IEnumerable<Seat> GetSeats(int memberId, int eventId, int statusId);
         public abstract Seat GetSingleSeat(int seatId);
