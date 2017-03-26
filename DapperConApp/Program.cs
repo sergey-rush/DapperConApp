@@ -19,6 +19,9 @@ namespace DapperConApp
 
             ThreadPool.QueueUserWorkItem(new WaitCallback(GetSeats), null);
 
+            int total = DataAccess.Data.CountSeats(0, 0, 0, 0);
+            Console.WriteLine("Total seats: {0}", total.ToString("# ### ### ###"));
+
             Console.ReadLine();
         }
 
