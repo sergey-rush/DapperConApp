@@ -27,10 +27,7 @@ namespace DapperConApp
             parameters.Add("@MemberId", memberId);
             parameters.Add("@EventId", eventId);
             parameters.Add("@StatusId", statusId);
-
-            //var RS = conx.Execute("UserlogincheckMVC", parameters, null, null, commandType: CommandType.StoredProcedure);
-            //int result = parameters.Get<int>("@RESULT");
-
+            
             using (var cn = OpenConnection())
             {
                 IEnumerable<Seat> seats = cn.Query<Seat>("Seats_GetSeats", parameters, commandType: CommandType.StoredProcedure);

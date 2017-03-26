@@ -26,14 +26,12 @@ namespace DapperConApp
         {
             Console.WriteLine("GetSeatBySeatId Thread {0} started", Thread.CurrentThread.GetHashCode());
             int[] seatIds = { 9228120, 9228105, 9228094, 9228093, 9228092, 9228091, 9227749, 9227747, 9227744, 9227742, 9228261};
-            //int seatId = 9228261;
 
             foreach (int id in seatIds)
             {
                 Seat seat = DataAccess.Data.GetSeatBySeatId(id);
                 Print(seat);
                 Console.WriteLine();
-                //Thread.Sleep(1000);
             }
         }
 
